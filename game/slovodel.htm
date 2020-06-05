@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<title>Сүзләр тап!</title>
+<style>
+body{
+	font-family:Mistral;
+	font-size:24 pt;
+	color:#9744ff;
+}
+.oganesyan{
+     display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: .5em 2em;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-color: #FDBE33 #000 #D77206;
+  border-radius: 6px;
+  background: linear-gradient(#F3AE0F, #E38916) #E38916;
+  transition: 0.2s;
+}
+.slovodel{
+    width: 288px;
+    height: 310px;
+    margin: 0 auto;
+}
+.slovodel div{
+    width: 70px;
+    height: 70px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    float: left;
+    text-align: center;
+    line-height: 70px;
+    font-size: 40px;
+}
+.column{
+    float: left;
+    margin-left: 10%;
+}
+#result input{
+
+    border: 0;
+    border-bottom: 1px solid #ccc;
+	text-transform: uppercase;
+}
+#result,#error,#words{
+
+    margin: 40px auto;
+    display: block;
+    width: 320px;
+	text-transform: uppercase;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	//Функция проверки вхождения в массив
+	function in_array(what, where){
+		for(var i=0; i<where.length; i++){
+			if(what.toUpperCase() == where[i]){
+				word_array.splice(i, 1);
+				return true;
+			}
+		}		
+		return false;
+	}
+
+	//Массив слов
+	word_array = ['ӘЛИФБА','ӨС','ИС','ТАБА','БАШ','ФӘН','ТӨС','ТӨР','ӘТИ','АШ','ТӨРӘН','СӨРӘН','ИТ','СӨТ','АТ','ФИЛ'];
+
+	//Ввод слова
+	$('.slovodel div').click(function(){
+		$('#error').text('');
+		$('#result input').val( $('#result input').val() + $(this).text() );
+	});
+	
+	//Проверка
+	$('#result button').click(function(){
+	
+		if( in_array($('#result input').val(),word_array) ){
+			$('#words').append('<br><span>' + $('#result input').val() + '</span>');
+			
+			if (word_array.length == 0){
+				$('#error').text('Котлыйбыз! Сез бөтен сүзләрне дә таптыгыз!');
+			}
+			
+		}else{
+			$('#error').text('Мондый сүз юк, яисә инде ул табылган!');
+		}
+		
+		$('#result input').val('');
+	});
+});
+</script>
+</head>
+<body>
+
+	<div class="column">
+		<div id="error"></div>
+		<div id="words">Табылган сүзләр:</div>
+	</div>
+	
+	<div id="result">
+		<input>
+		<button class="oganesyan">Тикшерү</button>
+	</div>
+	
+	<div class="slovodel">	
+		<div>Ә</div>
+		<div>Т</div>
+		<div>Ө</div>
+		<div>Р</div>
+		<div>Л</div>
+		<div>И</div>
+		<div>С</div>
+		<div>Ә</div>
+		<div>Т</div>
+		<div>Ф</div>
+		<div>Ә</div>
+		<div>Н</div>
+		<div>А</div>
+		<div>Б</div>
+		<div>А</div>
+		<div>Ш</div>
+	</div>
+
+	<center>
+		<script type="text/javascript"> var curent_url = document.URL; document.write("<a class='oganesyan' href='" + curent_url + "'>Янадан башларга</a>"); </script>	
+	</center><br><br>
+	<center style="clear:both;"><br>
+		<a href="https://railgaliev.github.io/new%20.html" class="oganesyan">Кире кайтырга</a> 
+		
+	</center>
+</body>
+</html>

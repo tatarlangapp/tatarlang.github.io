@@ -1,0 +1,124 @@
+@charset "utf-8";
+body{
+	font-family:verdana;
+	background:#4169E1;
+	
+	-moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%;
+	color:#F0FFF0;
+}
+
+#option1,#option2,#option3,#option4{
+	display:none;
+	margin-bottom: 10px;
+}
+.tatar{
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 20px;
+    color: #fff;
+    background: #0000CD;
+    padding: 4px 8px;
+	border: 0;
+	cursor: pointer;
+}
+
+#question{
+	border:10px;
+}
+
+#question-container{
+	border:10px;
+	height:300px;
+	width:400px;
+	display:none;
+}
+
+#answer-container{
+	height: 35px;
+	margin-top: 10px;
+	display: none;
+}
+
+.q_img{
+	width:50%;
+}
+
+#finish_img{
+	display: none;
+}
+
+#result{
+	display: none;
+}
+
+.doc-links{
+	margin:10px;
+}
+
+nav {
+	margin: 100px 0;
+	background-color: #00FF00;
+	margin-top: 0;
+    margin-bottom: 5px;
+
+}
+
+/* убираем отступы и поля, а также list-style для "ul", 
+ * и добавляем "position:relative" */
+nav ul {
+	padding:0;
+	margin:0;
+	list-style: none;
+	position: relative;
+	}
+
+/* применяем inline-block позиционирование к элементам навигации */
+nav ul li {
+	margin: 0px -7px 0 0;
+	display:inline-block;
+	background-color: #00FF00;
+	}
+
+	nav ul ul ul {
+		position: absolute;
+		top:0;
+		left:100%;
+}
+/* стилизуем ссылки */
+nav a {
+	display:block;
+	padding:0 10px;
+	color:#FFF;
+	font-size:20px;
+	line-height: 60px;
+	text-decoration:none;
+}
+
+/* изменяем цвет фона при наведении курсора */
+nav a:hover {
+	background-color: #0000FF;
+}
+
+/* скрываем выпадающие списки по умолчанию
+			 * и задаем абсолютное позиционирование */
+			 nav ul ul {
+			    display: none;
+			    position: absolute;
+			    top: 100%;
+			}
+			
+			/* отображаем выпадающий список при наведении */
+			nav ul li:hover > ul {
+			    display:inherit;
+			}
+			
+			/* первый уровень выпадающего списка */
+			nav ul ul li {
+			    min-width:170px;
+			    float:none;
+			    display:list-item;
+			    position: relative;
+			}
